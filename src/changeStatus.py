@@ -1,21 +1,8 @@
-<<<<<<< HEAD
-from telnetlib import STATUS
-class change_status:
-    status = ["created", "dispatched","arriving", "arrived", "serviceStarted", "serviceFinished", "feeSubmitted", "paid", "completed"]
-    
-    def __init__(self, url):
-        self.url = url
-        
-    def setCookie(self,cookie):
-        r = "http://app.e.uban360.net/gateway/shenzhou/getUserInfo.do?payToken="+cookie
-        print(r)
-        
-    def setStatus(self,):
-        if(statu in status):
-            
-        else:
-            print("%s is an illegal status." %rstatus)
-=======
+# -*- coding: UTF-8 -*-
+'''
+Created on 2017年3月19日
+author: IvanaHH
+'''
 class change_Status:
     status = ['dispatched','arriving','arrived','serviceStarted','serviceFinished','feeSubmitted','completed']
     
@@ -45,4 +32,3 @@ url2 = "http://app.e.uban360.net/gateway/shenzhou/orderChangeStatus"
 cStatus = change_Status(url1)
 cStatus.setCookieC("payToken=AQABAAAAAAAAADidAQAAAAAAQPnU3VgBAABjMTFmZWI4ZGRmMDQ4YWVlMGQ0OGU1NjQ3MGIyNmJkZQ==")
 cStatus.setStatusC(url2,"6377142869826207747","arriving")
->>>>>>> cff1dd06a18954f952887e97450ba9ea1d5e6072
