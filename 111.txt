@@ -1,5 +1,0 @@
-https://docs.python.org/2.7/tutorial/inputoutput.html
-
-http://www.pythontab.com/html/2014/pythonjichu_0121/681.html
-http://blog.csdn.net/kevin_darkelf/article/details/40980333
-http://blog.csdn.net/tanghaiyu777/article/details/55270992
