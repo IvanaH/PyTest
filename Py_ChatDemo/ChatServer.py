@@ -7,19 +7,28 @@ Created on 2017/10/19
 @author:Ivana
 '''
 
-import socket,time;
+# ECHO Server program
+import  socket,time
 
-s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+HOST = '10.1.80.209'
+PORT = 43502
 
-a=('127.0.0.1',8000)
+a = (HOST,PORT)
 
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.bind(a)
 
 s.listen(1)
 
+conn,addr=s.accept()
+
+print "Connect by" ,addr
+
 while 1:
-    conn,addr=s.accept()
-    print time.time()
-    print '['+addr[0]+':'+str(addr[1])+'] send a message to me:' + conn.rev(1024)
-    conn.sendall('I received a message from [' + addr[0]+str(addr[1])+']')
-s.close()
+#     conn.send("ECHO:")
+    data = conn.recv(512)
+    if not data:
+        break
+    conn.sendall("ECHO:"+data) 
+
+conn.close()

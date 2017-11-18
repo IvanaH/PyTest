@@ -6,18 +6,23 @@ Created on 2017/10/19
 
 @author:Ivana
 '''
+# Echo client program
 
-import socket
+import socket,time
 
-s=socket.socket()
+HOST = '10.1.80.209'
+PORT = 43502
 
-a=('127.0.0.1',8000)
+a = (HOST,PORT)
+
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 s.connect(a)
 
-msg = 'Hello'
-s.sendall(msg)
+s.sendall("Hello World")
 
-print s.recv(1024)
+data = s.recv(1024)
 
 s.close()
+
+print"Recieve msg:",data

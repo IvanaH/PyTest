@@ -2,6 +2,13 @@
 # -*- coding: utf-8 -*-
 
 '''
+Open multiple threads to perform port scanning
+
+Keyword arguments:
+ip -- the ip address that is being scanned
+delay -- the time in seconds that a TCP socket waits until timeout
+output -- a dict() the store result pairs in {port,status} style
+
 Created on 2017/10/16
 
 @author:Ivana
@@ -15,12 +22,17 @@ def scan_port(ip,port):
         if port >= 65535:
             print "Scan is over."
         s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+        s.settimeout(delay)
+        
         result=s.connect_ex((ip,port))
-
+        # if the TCP handshake is successful, the port is OPNE, otherwise it's CLOSED
         if result==0:
             print"Port ",port," is open."
+        else:
+            print"Port ",port," is closed."
         s.close()
-    except:
+    except  socket.error as e:
         print "Unexcepted error: ",sys.exc_info()[0]    
         
 
