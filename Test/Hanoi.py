@@ -1,24 +1,31 @@
 #  Created by IvanaH on 02/02/18.
 #  coding: UTF-8
-from test.test_threading_local import target
 
-def move(originSt, targetSt, dependSt):
-        if len(originSt)==1:
+def move(n, originSt, targetSt, dependSt):
+        ## if there is only one plate, move it from the start to the target 
+        if n ==1:
             target.append(originSt.pop())
         else:
-            move(n-1)
+        ## move n-1 plates from the start to the depend
+            move(n-1, originSt, dependSt,targetSt)
+        ## move the last plate to the target
             target.append(originSt.pop())
-        
+        ## move the n-1 plates from the depend to the target
+            move(n-1, depentSt, targetSt,originSt)
+                    
 def hanoi(n):
-    stack originSt=[]
-    stack targetSt=[]
-    stack dependSt=[]
+    # the start stack 
+    stackA=[]
+    # the target stacK
+    stackB=[]
+    stackC=[]
     
-    for i in range(1,n):
-        originSt.append(i)
-
-    move(originSt, targetSt, dependSt)
+    
+    for i in range(1,n+1):
+        stackA.append(i)
+ 
+#     move(n,stackA,stackB,stackC)
         
         
-    
+hanoi(2)
     
