@@ -4,14 +4,16 @@
 def move(n, originSt, targetSt, dependSt):
         ## if there is only one plate, move it from the start to the target 
         if n ==1:
-            target.append(originSt.pop())
+            targetSt.append(originSt.pop())
+            print (originSt,'-->', dependSt)
+            return
         else:
         ## move n-1 plates from the start to the depend
             move(n-1, originSt, dependSt,targetSt)
         ## move the last plate to the target
-            target.append(originSt.pop())
+            targetSt.append(originSt.pop())
         ## move the n-1 plates from the depend to the target
-            move(n-1, depentSt, targetSt,originSt)
+            move(n-1, dependSt, targetSt,originSt)
                     
 def hanoi(n):
     # the start stack 
@@ -24,8 +26,8 @@ def hanoi(n):
     for i in range(1,n+1):
         stackA.append(i)
  
-#     move(n,stackA,stackB,stackC)
+    move(n,stackA,stackB,stackC)
         
         
-hanoi(2)
+hanoi(4)
     
