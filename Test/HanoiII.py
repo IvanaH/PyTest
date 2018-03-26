@@ -1,14 +1,33 @@
 #  Created by IvanaH on 14/02/18.
 #  coding: UTF-8
 
-def hanoi(n,a,depend,c):
-    if n==1:
-        print (a,'-->',c)
-        return
-    else:
-        hanoi(n-1,a,c,depend)
-        hanoi(1,a,depend,c)
-        hanoi(n-1,depend,a,c)
+class hanoi():
+    depend = []
+    target = []
+    origin = []
+    
+    def __init__(self,n):
+        self.n = n
+        for i in range(1,n):
+            self.origin.append(i)
+            
+    def move(n,origin,depend,target):
+        print(origin)
+        print(target)
+        
+        if n==1:
+#         print (a,'-->',c)
+           target.append(origin.pop())
+#            print("From:"+self.origin)
+#            print("To:"+self.target)
+           return
+        else:
+           move(n-1,origin,target,depend)
+           move(1,origin,depend,target)
+           move(n-1,depend,origin,target)
+        print(target)
+
         
 
-hanoi(15, "a", "b", "c")
+hanoiTest = hanoi(4)
+hanoiTest.move()
