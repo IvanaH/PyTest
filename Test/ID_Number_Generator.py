@@ -4,7 +4,6 @@ from datetime import date
 from datetime import timedelta 
 from random import random, randint
 import re
-import codeop
 
 class generate():
     def __init__(self):
