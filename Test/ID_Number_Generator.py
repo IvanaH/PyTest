@@ -28,7 +28,7 @@ class generate():
         
     
     def getBirthDate(self):
-        year = randint(1920,2000)
+        year = randint(1950,2000)
 #         moth = randint(1,12)
 #         day = randint(1,31)
         da = date.today()+timedelta(days=randint(1,366))
@@ -42,7 +42,7 @@ class generate():
     
     def getCheckCode(self):
         idN = self.getDistrictCode()+self.getBirthDate()+self.getSerialNumber()
-         
+                 
         i = 0
         count = 0
          
@@ -51,18 +51,19 @@ class generate():
          
         for i in range(i,len(idN)):
             count = count + int(weight[i])*int(idN[i])
+
         count = count%11
          
         checkcode = SIN[str(count)]
          
-        return checkcode
+        return idN+checkcode
          
      
     def getNumber(self):
-        return self.getDistrictCode()+self.getBirthDate()+self.getSerialNumber()+self.getCheckCode()    
+        return self.getCheckCode()    
 
 def test():
-    str = '654324 �½�ά���������������̩�������ͺ���'
+    str = '654324 9000078'
     pattern = re.compile('\d+')
     if pattern.match(str):
         return pattern.match(str).group(0)
@@ -72,13 +73,15 @@ if __name__ == '__main__':
 #     print (test())
     i = True
     h = generate()
+#     print(h.getCheckCode())
 
     while(i):
         print(h.getNumber())
-        a = raw_input("Do you want another number?(enter any character)")
+        a = input("Do you want another number?(enter any character)")
         if a != '':
 #         if a == 'Y':
             continue
         else:
             break
+
 
