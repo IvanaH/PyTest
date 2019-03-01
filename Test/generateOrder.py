@@ -41,7 +41,7 @@ def gen_sql(lists,uid,uname,quotaId,quotaType,scopeId):
             sDyn= sDyn+','+params[j]+'='+lists[i][j]
 #         print sDyn
         iSql = sConstant+sDyn
-        print iSql
+        print (iSql)
         sDyn=''    
 #         print sDyn
 
@@ -68,7 +68,7 @@ class read_excel:
 
             
 if __name__ == '__main__':
-    re = read_excel(r'D:\Python27\11.xls')         
+    re = read_excel(r'D:\Python36\11.xls')         
     values = re.get_rows_content()
     
 #     for i in range(0,len(values)):
