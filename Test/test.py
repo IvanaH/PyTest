@@ -1,7 +1,8 @@
-class a:
-    def __init__(self,i,m):
-        self.i = i
-        self.m = m
-        
-x = a(1.0,3)
-print (x.i,x.m)
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+'''
+Created on 2019/03/13
+
+@author:Ivana
+'''
