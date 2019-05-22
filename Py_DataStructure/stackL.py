@@ -22,43 +22,35 @@ def canculation (n1,n2,op):
 def canculate(equation):
     stackNum = []
     stackOperator = []
+    loc = -1
     
     for i in range (0,len(equation)):
-        print(equation[i])
-        if equation[i] == '*' or equation[i] == '/':
-            stackOperator.append(equation[i])
-            print("push into sO")
+        if loc >= i:
+            continue
+        elif equation[i] == '*' or equation[i] == '/':
+            k = float(stackNum.pop())
+            r = canculation(k, float(equation[i+1]), equation[i])
+            stackNum.append(r)
+            loc  = i + 1
+            continue
         elif equation[i] == '+' or equation[i] == '-':
-            if len(stackOperator) > 0:
-                flag = True
-                while flag:
-                    if stackOperator[-1]== '*' or stackOperator[-1] == '/':
-                        k = int(stackNum.pop())
-                        j = int(stackNum.pop())
-                        op = stackOperator.pop()
-                        r = canculation(j, k, op)
-                        stackNum.append(r)
-                        print("change num %i,%i,%s,%i",j,k,op,r)
-                        continue
-                    flag = False
             stackOperator.append(equation[i])
-            print("push into sO")
+            continue            
         else:
             stackNum.append(equation[i])
-            print("push into sN")
-    
     print(stackNum)
     print(stackOperator)
-
+    
     for i in range(0,len(stackOperator)):
-        k = int(stackNum.pop())
-        j = int(stackNum.pop())
-        op = stackOperator.pop()
-        stackNum.append(canculation(j, k, op))
-    print (stackNum.pop())
+        j = float(stackNum.pop())
+        k = float(stackNum.pop())
+        r = canculation(k, j, stackOperator.pop())
+        stackNum.append(r)
+    print(stackNum.pop())
+
     
 if __name__ == '__main__':
-    eq = '5+6*4/2-8'
+    eq = '5+6*4/3-8/2'
     canculate(eq)
 
         
