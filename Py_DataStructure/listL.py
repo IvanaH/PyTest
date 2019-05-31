@@ -12,7 +12,7 @@ def majority(list):
     half = len(list)/2
     
     for i in range(len(list)):
-        if count[list[i]] is null:
+        if list[i] not in count.keys():
             count[list[i]] = 1
         else:
             num = count[list[i]] + 1
@@ -21,10 +21,10 @@ def majority(list):
                 break
             else:
                 count[list[i]] = num
-    print(result)
+    print("The majority element is %s" %(str(result)))
+    
     
 if __name__ == '__main__':
-    list = [1,2,3,1,1,1,4]
-    dic = {1:2,3:4}
-    print(dic[2])
-#     majority(list)
+    list1 = [1,2,3,1,1,1,4]
+    list2 = ['a','v','d','d','3','d','2','44','2sdf','d','3','d','d','d','d','d','d','d']
+    majority(list2)
