@@ -12,6 +12,7 @@ encoding//Py_DataStructure/listL.py=utf-8
 encoding//Py_DataStructure/queueL.py=utf-8
 encoding//Py_DataStructure/sortL.py=utf-8
 encoding//Py_DataStructure/stackL.py=utf-8
+encoding//Py_Gadgets/toConditionalString.py=utf-8
 encoding//Py_ThreadL/multiThre.py=utf-8
 encoding//Py_ThreadL/threadL.py=utf-8
 encoding//Py_ThreadL/threadingL.py=utf-8
