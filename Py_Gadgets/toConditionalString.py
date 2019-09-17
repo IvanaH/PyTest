@@ -15,6 +15,7 @@ def getFileContent(addr):
             fcontent.append(line.split('\n')[0])
     return fcontent    
 
+
 def toString(listC,joint,start=None,end=None):
     if start != None:
         rstr = start + str(listC[0])
