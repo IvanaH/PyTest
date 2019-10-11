@@ -8,8 +8,8 @@ class readContent:
         try:
             data = xlrd.open_workbook(self.filename)
             return data
-        except Exception,e:
-            print str(e)
+        except Exception as e:
+            print (e)
             
     #根据索引获取Excel表格中的数据   参数:file：Excel文件路径     colnameindex：表头列名所在行的索引  ，by_index：表的索引
     def excel_table_byindex(colnameindex=0,by_index=0):

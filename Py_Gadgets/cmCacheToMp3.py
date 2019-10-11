@@ -23,8 +23,7 @@ def getRName(id):
     except Exception as e:
         print(sys._getframe().f_code.co_name + ":"+ e)
         
-    return name+'_'+ar
-    
+    return name+'_'
 
 def toMp(fname,fpath=None):
 #     get real name of the mp3 file by id and the api: https://api.imjad.cn/cloudmusic/?type=detail&id=188878
@@ -60,6 +59,7 @@ def toMpBatch(fnames,fpath=None):
 
 def getFileName(fdir,postfix=None):
     fnames = []
+    os.walk(top, topdown, onerror, followlinks)
     for file in os.listdir(fdir):
         if postfix != None:
             if os.path.splitext(file)[1] == postfix:
