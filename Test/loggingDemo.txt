@@ -1,0 +1,5 @@
+2019-10-30 19:58:14 - example_log - ERROR - invaildDivision raise an exception:
+Traceback (most recent call last):
+  File "D:\JavaL\WorkSpace\PyTest\Test\loggingL.py", line 43, in invaildDivision
+    2/0
+ZeroDivisionError: division by zero
