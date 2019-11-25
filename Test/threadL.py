@@ -23,10 +23,16 @@ def single_thread():
 
 def multi_threads():
     threadA = threading.Thread(target=draw_circle,args=(5,))
-    threadB = threading.Thread(target=draw_circle,args=(3,))
+    threadB = threading.Thread(target=draw_square,args=(3,))
     threadA.start()
     threadB.start()
-    threadA.join()
+    threadA.join()  # without calling join(), the super_thread will end without waiting for the end of sub_thread
+    '''
+                    without threadA.join(), the output should be:
+                    Has drew a square.
+                    End thread: Fri Nov  1 19:24:20 2019
+                    Has drew a circle.
+                    '''
     threadB.join()
     
 if __name__ == '__main__':
@@ -34,4 +40,5 @@ if __name__ == '__main__':
 #     single_thread()
     multi_threads()
     print("End thread: " + time.ctime())
-          
+    
+    
